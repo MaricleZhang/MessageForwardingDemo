@@ -18,14 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"请点击屏幕测试";
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     FirstClass *first = [[FirstClass alloc] init];
     [first performSelector:@selector(test)];
-//    NSArray *array = [NSArray array];
-//    [array objectAtIndex:1];
 }
 
 @end
