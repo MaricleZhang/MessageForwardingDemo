@@ -20,15 +20,15 @@ void fooMethod(id obj, SEL _cmd)
 /** 动态方法解析  */
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-//    NSLog(@"%s >>>> %@", __func__, NSStringFromSelector(sel));
-//
-//    BOOL resolved = [super resolveInstanceMethod:sel];
-//    if (!resolved)
-//    {
-//        // 动态添加一个方法fooMethod处理消息
-//        class_addMethod([self class], sel, (IMP)fooMethod, "v@:");
-//        return YES; // 返回YES，表示消息转发成功，不会发生崩溃
-//    }
+    NSLog(@"%s >>>> %@", __func__, NSStringFromSelector(sel));
+
+    BOOL resolved = [super resolveInstanceMethod:sel];
+    if (!resolved)
+    {
+        // 动态添加一个方法fooMethod处理消息
+        class_addMethod([self class], sel, (IMP)fooMethod, "v@:");
+        return YES; // 返回YES，表示消息转发成功，不会发生崩溃
+    }
     return YES;
 }
 
